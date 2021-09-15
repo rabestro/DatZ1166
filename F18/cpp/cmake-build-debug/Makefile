@@ -56,10 +56,10 @@ RM = C:\Users\jegors.cemisovs\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\21
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Projects\cpp\F18
+CMAKE_SOURCE_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Projects\cpp\F18\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projects\cpp\F18\cmake-build-debug\CMakeFiles C:\Projects\cpp\F18\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\CMakeFiles" "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projects\cpp\F18\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
