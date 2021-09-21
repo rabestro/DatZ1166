@@ -16,3 +16,27 @@ int main() {
   for (auto& i : map) std::cout << i.first << ": " << i.second << '\n';
 }
 ```
+
+### Working solution
+
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+struct Token { size_t size; };
+std::istream &operator>>(std::istream &in, Token &t) {
+  t.size = 0;
+  for (char c; in.get(c);) {
+    if (isalpha(c)) ++t.size; else if (t.size) break;
+  }
+  if (std::cin.eof() && !std::cin.bad() && t.size) in.clear();
+  return in;
+}
+
+int main() {
+  std::map<int, int> map;
+  for (Token t; std::cin >> t;) ++map[t.size];
+  for (auto &i : map) std::cout << i.first << ": " << i.second << '\n';
+}
+```
