@@ -112,7 +112,20 @@ public:
 
     // G20. Create function to insert element with value n after first element with value m.
     void exerciseG20(int n, int m) {
+        auto *current = head;
+        while (current != nullptr && current->data != m) {
+            current = current->next;
+        }
+        if (current == nullptr) {
+            std::cout << m << " not found" << std::endl;
+            return;
+        }
+        std::cout << m << " found" << std::endl;
+        Node *new_node = new Node;
 
+        new_node->data = n;
+        new_node->next = current->next;
+        current->next = new_node;
     }
 
     void printList() {
@@ -141,7 +154,7 @@ LinkedList createList() {
     while (n--) {
         int value;
         cin >> value;
-        list.pushNode(value);
+        list.createNode(value);
     }
     return list;
 }
