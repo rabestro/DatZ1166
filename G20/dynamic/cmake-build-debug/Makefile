@@ -56,10 +56,10 @@ RM = C:\Users\jegors.cemisovs\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\21
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp"
+CMAKE_SOURCE_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\G20\dynamic"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\G20\dynamic\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\CMakeFiles" "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\G20\dynamic\cmake-build-debug\CMakeFiles" "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\G20\dynamic\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\F18\cpp\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\jegors.cemisovs\OneDrive - University of Latvia\2nd Semester\DatZ1166 Software development fundamentals\DatZ1166\G20\dynamic\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -116,24 +116,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named F18
+# Target rules for targets named G20
 
 # Build rule for target.
-F18: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 F18
-.PHONY : F18
+G20: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 G20
+.PHONY : G20
 
 # fast build rule for target.
-F18/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\F18.dir\build.make CMakeFiles/F18.dir/build
-.PHONY : F18/fast
+G20/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\G20.dir\build.make CMakeFiles/G20.dir/build
+.PHONY : G20/fast
 
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\F18.dir\build.make CMakeFiles/F18.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\G20.dir\build.make CMakeFiles/G20.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -141,7 +141,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\F18.dir\build.make CMakeFiles/F18.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\G20.dir\build.make CMakeFiles/G20.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -149,7 +149,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\F18.dir\build.make CMakeFiles/F18.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\G20.dir\build.make CMakeFiles/G20.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -160,7 +160,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... F18
+	@echo ... G20
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
