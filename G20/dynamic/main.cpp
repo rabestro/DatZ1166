@@ -165,7 +165,7 @@ int main() {
     int n, m;
     cout << "Enter numbers N and M: " << endl;
     cin >> n >> m;
-
+    cout << "Value: " << n << ", Search: ";
     list.exerciseG20(n, m);
     list.printList();
 
