@@ -9,7 +9,6 @@ void print_list(list<int> list) {
     cout << endl;
 }
 
-
 list<int> createList() {
     list<int> list;
     cout << "Enter number of nodes and their values:" << endl;
@@ -24,23 +23,18 @@ list<int> createList() {
 }
 
 // G20. Create function to insert element with value n after first element with value m.
-void exerciseG20(list<int> list, int n, int m) {
-/*    auto *current = head;
-    while (current != nullptr && current->data != m) {
-        current = current->next;
-    }
-    if (current == nullptr) {
+void exerciseG20(list<int> &list, int n, int m) {
+    auto it = list.begin();
+    while (it != list.end() && *it != m) it++;
+
+    if (it == list.end()) {
         std::cout << m << " not found" << std::endl;
         return;
     }
-    std::cout << m << " found" << std::endl;
-    Node *new_node = new Node;
 
-    new_node->data = n;
-    new_node->next = current->next;
-    current->next = new_node;*/
+    std::cout << *it << " found" << std::endl;
+    list.insert(++it, n);
 }
-
 
 int main() {
     auto list = createList();
