@@ -5,22 +5,18 @@
 #include <list>
 #include <map>
 
-using std::vector;
-using std::list;
-using std::string;
-using std::pair;
-using std::map;
-using std::cout;
-using std::endl;
+using namespace std;
 
-// Programming task CD exchange
-
+// Programming task CD exchanges
+//
+// The complexity of the algorithm is O(n*log(n))
+// Memory consumption is O(n)
 int main() {
     bool isFound = false;
     map<string, list<string>> offers[2];
 
-    std::ifstream inFile("exchange.in");
-    std::ofstream outFile("exchange.out");
+    ifstream inFile("exchange.in");
+    ofstream outFile("exchange.out");
 
     do {
         long time;
