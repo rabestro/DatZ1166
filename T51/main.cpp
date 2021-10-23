@@ -27,16 +27,17 @@ int main() {
         auto list = offers[type][cd];
         if (list.empty()) {
             offers[1 - type][cd].push_back(code);
-        } else {
-            auto transaction = std::to_string(time) + " ";
-            if (mode == 'A') {
-                transaction += code + " " + list.front();
-            } else {
-                transaction += list.front() + " " + code;
-            }
-            list.pop_front();
-            outFile << transaction << endl;
+            continue;
         }
+        auto transaction = std::to_string(time) + " ";
+        if (mode == 'A') {
+            transaction += code + " " + list.front();
+        } else {
+            transaction += list.front() + " " + code;
+        }
+        list.pop_front();
+        outFile << transaction << endl;
+
     } while (!inFile.eof());
     inFile.close();
     outFile.close();
