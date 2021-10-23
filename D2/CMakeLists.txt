@@ -3,4 +3,4 @@ project(D2)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(D2 main.cpp)
+add_executable(D2 d2.cpp)
