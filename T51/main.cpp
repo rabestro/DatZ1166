@@ -32,7 +32,7 @@ int main() {
         isFound = true;
         // The found person pairs recorded in the following format:
         // Time, Person_code_A, Person_code_B
-        outFile << std::to_string(time) + " ";
+        outFile << to_string(time) + " ";
         if (action == 'A') outFile << code + " " + list.front();
         else outFile << list.front() + " " + code;
         list.pop_front();
