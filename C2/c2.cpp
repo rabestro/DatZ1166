@@ -12,7 +12,8 @@ void deleteFirstTwoDescending(LinkedList **first) {
     auto prev = root;
     for (auto curr = prev->next; curr; root = prev, prev = curr, curr = curr->next) {
         if (prev->value > curr->value) {
-            root->next = curr->next;
+            if (prev == *first) *first = curr->next;
+            else root->next = curr->next;
             return;
         }
     }
