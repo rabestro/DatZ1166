@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 
-using std::cout;
 using std::endl;
 using std::vector;
 
@@ -33,11 +32,9 @@ int main() {
         inFile >> p.id >> p.woman >> p.man;
         if (p.id == 0) break;
         p.level = getLevel(persons, p.id);
-//        cout << p.id << " " << p.woman << " " << p.man << " >> " << p.level << endl;
         if (p.level > maxLevel) maxLevel = p.level;
         persons.push_back(p);
     }
-//    cout << persons.size() << endl;
     inFile.close();
 
     std::ofstream outFile("team.out");
