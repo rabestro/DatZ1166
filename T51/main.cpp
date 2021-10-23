@@ -4,7 +4,6 @@
 #include <vector>
 #include <list>
 #include <map>
-#include <set>
 
 using std::vector;
 using std::list;
@@ -15,20 +14,16 @@ using std::cout;
 using std::endl;
 
 int main() {
-    map<string, list<string>> ask;
-    map<string, list<string>> bid;
-    map<string, list<string>> offers[2] = {{},
-                                           {}};
-    vector<string> report;
+    map<string, list<string>> offers[2];
 
     std::ifstream inFile("exchange.in");
+    std::ofstream outFile("exchange.out");
     do {
         long time;
         char mode;
         string code, cd;
         inFile >> time >> mode >> code >> cd;
         int type = mode - 'A';
-        cout << type << " " << time << endl;
         auto list = offers[type][cd];
         if (list.empty()) {
             offers[1 - type][cd].push_back(code);
@@ -40,12 +35,9 @@ int main() {
                 transaction += list.front() + " " + code;
             }
             list.pop_front();
-            report.push_back(transaction);
+            outFile << transaction << endl;
         }
     } while (!inFile.eof());
     inFile.close();
-
-    auto outFile = fopen("exchange.out", "w+");
-
-    fclose(outFile);
+    outFile.close();
 }
