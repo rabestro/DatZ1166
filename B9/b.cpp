@@ -4,10 +4,11 @@
 using namespace std;
 
 int lineNumWithMostDigits(string filename) {
+    ifstream file(filename);
     string line;
     auto maxSize = 0ull;
     int numLine = 0;
-    ifstream file(filename);
+
     for (int curLine = 0; getline(file, line); ++curLine) {
         if (line.size() > maxSize) {
             numLine = curLine;
