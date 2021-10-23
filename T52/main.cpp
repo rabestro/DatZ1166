@@ -7,21 +7,30 @@
 using std::vector;
 using std::pair;
 
-std::map<unsigned, pair<unsigned, unsigned>> participants;
-vector<vector<unsigned>> levels = {};
+// Programming task Team
 
-void setLevel(unsigned int parent, unsigned level) {
+// Participant determines a team member, followed by the people he invites - a woman and a man.
+std::map<unsigned, pair<unsigned, unsigned>> participants;
+
+// The trust level
+vector<vector<unsigned>> levels;
+
+// The greater the "distance to person", the less you trust it.
+void setLevel(unsigned parent, unsigned level) {
+    if (parent == 0u) return;
     if (level >= levels.size()) {
         levels.push_back({parent});
     } else {
         levels[level].push_back(parent);
     }
-    auto invited = participants.find(parent)->second;
     ++level;
-    if (invited.first > 0u) setLevel(invited.first, level);
-    if (invited.second > 0u) setLevel(invited.second, level);
+    auto invited = participants.find(parent)->second;
+    setLevel(invited.first, level);
+    setLevel(invited.second, level);
 }
 
+// The complexity of the algorithm is O(n*log(n))
+// Memory consumption is O(n)
 int main() {
     std::set<unsigned> children;
 
@@ -38,7 +47,7 @@ int main() {
     }
     inFile.close();
 
-    // Find the leader
+    // Find the team leader
     auto leader = 0u;
     for (auto person: participants) {
         if (children.find(person.first) == children.end()) {
@@ -47,10 +56,10 @@ int main() {
         }
     }
 
-    // Calculate the levels
+    // Team leader has the highest level of trust, marked by integer 0.
     setLevel(leader, 0);
 
-    // Write result to file
+    // The team members are grouped in the output according to the "trust levels"
     std::ofstream outFile("team.out");
     for (auto level = levels.size(); level-- > 0;) {
         outFile << level << ": ";
