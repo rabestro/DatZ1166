@@ -1,51 +1,64 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
+#include <set>
 
-using std::endl;
 using std::vector;
+using std::pair;
 
-struct Person {
-    unsigned id;
-    unsigned woman;
-    unsigned man;
-    unsigned level;
-};
+std::map<unsigned, pair<unsigned, unsigned>> participants;
+vector<vector<unsigned>> levels = {};
 
-unsigned getLevel(vector<Person> persons, unsigned id) {
-    for (auto person : persons) {
-        if (person.woman == id || person.man == id) {
-            return person.level + 1;
-        }
+void setLevel(unsigned int parent, unsigned level) {
+    if (level >= levels.size()) {
+        levels.push_back({parent});
+    } else {
+        levels[level].push_back(parent);
     }
-    return 0;
+    auto invited = participants.find(parent)->second;
+    ++level;
+    if (invited.first > 0u) setLevel(invited.first, level);
+    if (invited.second > 0u) setLevel(invited.second, level);
 }
 
 int main() {
+    std::set<unsigned> children;
+
+    // Read the participants. They are given in an arbitrary order.
     std::ifstream inFile("team.in");
-
-    vector<Person> persons = {};
-    int maxLevel = 0;
-
     for (;;) {
-        Person p;
-        inFile >> p.id >> p.woman >> p.man;
-        if (p.id == 0) break;
-        p.level = getLevel(persons, p.id);
-        if (p.level > maxLevel) maxLevel = p.level;
-        persons.push_back(p);
+        unsigned id, woman, man;
+        inFile >> id >> woman >> man;
+        if (id == 0u) break;
+
+        participants.insert({id, {woman, man}});
+        if (woman > 0u) children.insert(woman);
+        if (man > 0u) children.insert(man);
     }
     inFile.close();
 
-    std::ofstream outFile("team.out");
-
-    for (int level = maxLevel; level >= 0; --level) {
-        outFile << level << ": ";
-        for (auto person : persons) {
-            if (person.level == level) outFile << person.id << " ";
+    // Find the leader
+    auto leader = 0u;
+    for (auto person: participants) {
+        if (children.find(person.first) == children.end()) {
+            leader = person.first;
+            break;
         }
-        outFile << endl;
+    }
+
+    // Calculate the levels
+    setLevel(leader, 0);
+
+    // Write result to file
+    std::ofstream outFile("team.out");
+    for (auto level = levels.size(); level-- > 0;) {
+        outFile << level << ": ";
+        for (auto person: levels[level]) outFile << person << " ";
+        outFile << std::endl;
     }
     outFile.close();
     return 0;
 }
+
+
