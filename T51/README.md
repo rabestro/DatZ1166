@@ -37,5 +37,23 @@ Time, Person_code_A, Person_code_B
 - Time - The moment of time, when the system has found the person pair (assume that the system gives the result in the same time moment when the given request or offer has come into the system)
 - Person_code_A - The requesting person code.
 - Person_code_B - The offering person code.
-- 
+
 Each record is in the according registration queue and has a unique Time field, and the records are in the chronological order, i.e. each time moment of the record is strictly greater than the time moment of the next record. If no pairs are found, the application should print “0” number.
+
+## Example:
+The content of input file _exchange.in_:
+```
+10 B 01010112345 ABBA
+15 A 02020213456 U2
+16 A 03030314567 4you
+17 B 02020213456 ABBA
+20 B 04040415678 4you
+127 B 04040415678 HipHop2014
+1234 A 05050516789 ABBA
+```
+
+The content of output file _exchange.out_:
+```
+20 03030314567 04040415678
+1234 05050516789 01010112345
+```
