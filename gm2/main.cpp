@@ -38,7 +38,6 @@ public:
                 prev = it;
             }
         }
-
     }
 
     void printList() {
@@ -76,9 +75,7 @@ int main() {
     auto list = createList("in.txt");
 
     list.printList();
-
     list.removeLower();
-
     list.printList();
 
     return 0;
