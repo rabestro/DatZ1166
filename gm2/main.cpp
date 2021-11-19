@@ -129,6 +129,16 @@ public:
     }
 
     void removeLower() {
+        auto *current = head;
+        if (current == nullptr) return;
+        auto prev = current;
+        for (auto it = current->next; it != nullptr; it = it->next) {
+            if (it->data < prev->data) {
+
+            } else {
+                prev = it->data;
+            }
+        }
 
     }
 
